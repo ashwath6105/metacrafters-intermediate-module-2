@@ -59,22 +59,31 @@ export default function HomePage() {
     }
   }
 
-  const deposit = async() => {
-    if (atm) {
-      let tx = await atm.deposit(1);
-      await tx.wait()
-      getBalance();
+  const factorial = async () => {
+    if (atm && atm.factorial) {
+      try {
+        const tx = await atm.factorial(10);
+        await tx.wait(); // Wait for the transaction to be mined and confirmed
+        getBalance();
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    }
+  }
+  
+  const power = async () => {
+    if (atm && atm.power) {
+      try {
+        const tx = await atm.power(10, 2);
+        await tx.wait(); // Wait for the transaction to be mined and confirmed
+        getBalance();
+      } catch (error) {
+        console.error("Error:", error);
+      }
     }
   }
 
-  const withdraw = async() => {
-    if (atm) {
-      let tx = await atm.withdraw(1);
-      await tx.wait()
-      getBalance();
-    }
-  }
-
+  
   const initUser = () => {
     // Check to see if user has Metamask
     if (!ethWallet) {
@@ -94,8 +103,8 @@ export default function HomePage() {
       <div>
         <p>Your Account: {account}</p>
         <p>Your Balance: {balance}</p>
-        <button onClick={deposit}>Deposit 1 ETH</button>
-        <button onClick={withdraw}>Withdraw 1 ETH</button>
+        <button onClick={factorial}>Factorial of 10</button>
+        <button onClick={power}>10 to the power 2</button>
       </div>
     )
   }
@@ -104,7 +113,7 @@ export default function HomePage() {
 
   return (
     <main className="container">
-      <header><h1>Welcome to the Metacrafters ATM!</h1></header>
+      <header><h1>Welcome to Ashwath's Calculator!</h1></header>
       {initUser()}
       <style jsx>{`
         .container {
