@@ -1,4 +1,12 @@
-# Starter Next/Hardhat Project
+# Factorial and Power of a Number
+
+This is a simple solidity smart contract using two functions - "Factorial of 10" and "10 Raised to POWER of 2" on a webpage deployed on a local hardhat network.
+
+## Description
+
+This project offers capability to compute a number's factorial and determine the power of a number raised to another number, as well as the ability to initialise and retrieve the balance state variable. 
+
+## Running the code
 
 After cloning the github, you will want to do the following to get the code running on your computer.
 
@@ -10,3 +18,13 @@ After cloning the github, you will want to do the following to get the code runn
 
 After this, the project will be running on your localhost. 
 Typically at http://localhost:3000/
+
+## Authors
+
+Ashwath R
+
+ashwathraju85@gmail.com
+
+## License
+
+This project is licensed under MIT.
